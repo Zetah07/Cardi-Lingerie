@@ -15,7 +15,7 @@ const SetupPage =() => {
     }, [isOpen, onOpen]);
 
     return (
-        <div className="p-4">
+        <div className="">
 
         </div>
     );
