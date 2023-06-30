@@ -34,6 +34,8 @@ export const StoreModal = () => {
       setLoading(true);
 
       const response = await axios.post('api/stores/', values );
+
+      window.location.assign(`/${response.data.id}`);
       toast.success('Tienda creada con exito.');
 
     } catch (error) {
@@ -45,7 +47,7 @@ export const StoreModal = () => {
 
   return(
     <Modal
-      title="Create Store"
+      title="Crear tienda"
       description="Crea una nueva tienda y maneja los productos y categorias"
       isOpen={storeModal.isOpen}
       onClose={storeModal.onClose}
