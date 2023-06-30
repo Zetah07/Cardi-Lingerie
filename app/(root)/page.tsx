@@ -16,7 +16,7 @@ const SetupPage =() => {
 
     return (
         <div className="">
-
+            <h1>Setup Page</h1>
         </div>
     );
 }

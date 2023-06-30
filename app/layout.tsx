@@ -5,6 +5,7 @@ import { ModalProvider } from "@/providers/modal-provider";
 
 import "./globals.css";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,6 +18,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
+
   return (
     <ClerkProvider>
       <html lang="en">
