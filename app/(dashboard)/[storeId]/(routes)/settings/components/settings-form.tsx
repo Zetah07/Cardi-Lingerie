@@ -9,9 +9,12 @@ import { useForm } from "react-hook-form";
 import { useParams, useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import { toast } from "react-hot-toast";
+import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@radix-ui/react-separator";
+import { AlertModal } from "@/components/modals/alert-modal";
 import {
   Form,
   FormControl,
@@ -20,8 +23,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { toast } from "react-hot-toast";
+import { ApiAlert } from "@/components/ui/api-alert";
 
 
 interface SettingFormProps {
@@ -59,10 +61,31 @@ export const SettingsForm: React.FC<SettingFormProps> = ({ initialData }) => {
     }
   };
 
+  const onDelete = async () => {
+    try{
+      setLoading(true);
+      await axios.delete(`/api/stores/${params.storeId}`);
+      router.refresh();
+      router.push('/');
+      toast.success('Tienda eliminada');
+    } catch (error) {
+      toast.error('Asegúrate de haber eliminado primero todos los productos y categorías.');
+    } finally {
+      setLoading(false);
+      setOpen(false);
+    }
+  };
+
   return (
     <>
+    <AlertModal 
+      isOpen={open}
+      onClose={() => setOpen(false)}
+      onConfirm={onDelete}
+      loading={loading}
+    />
       <div className="flex items-center justify-between">
-        <Heading title="Settings" description="Manage your store settings." />
+        <Heading title="Ajustes" description="Gestiona la configuración de tu tienda." />
         <Button 
           disabled={loading} 
           variant="destructive" 
@@ -102,6 +125,11 @@ export const SettingsForm: React.FC<SettingFormProps> = ({ initialData }) => {
           </Button>
         </form>
       </Form>
+      <Separator />
+      <ApiAlert 
+        title="NEXT_PUBLIC_API_URL" 
+        description={`${origin}/api/${params.storeId}`} 
+        variant="public"/>
     </>
   );
 };
