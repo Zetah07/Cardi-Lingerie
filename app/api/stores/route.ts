@@ -31,6 +31,6 @@ export async function POST(
     
   } catch (error) {
     console.log("[STORES_POST]", error);
-    return new NextResponse("Internal error", { status: 550 });
+    return new NextResponse("Internal error", { status: 500 });
   }
 }
