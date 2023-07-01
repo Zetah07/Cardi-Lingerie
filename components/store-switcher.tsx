@@ -66,7 +66,7 @@ export default function StoreSwitcher({ className, items = [] }: StoreSwitcherPr
       <PopoverContent className="w-[200px] p-0">
         <Command>
           <CommandList>
-            <CommandInput placeholder="Search store..." />
+            <CommandInput placeholder="Busca tienda..." />
             <CommandEmpty>No store found.</CommandEmpty>
             <CommandGroup heading="Stores">
               {formattedItems.map((store) => (

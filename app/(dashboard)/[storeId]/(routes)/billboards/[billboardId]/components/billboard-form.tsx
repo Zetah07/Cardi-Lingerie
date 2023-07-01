@@ -11,7 +11,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { toast } from "react-hot-toast";
 import { Input } from "@/components/ui/input";
-import { useOrigin } from "@/hooks/use-origin";
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/heading";
 import { Separator } from "@radix-ui/react-separator";
@@ -42,7 +41,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
 }) => {
   const params = useParams();
   const router = useRouter();
-  const origin = useOrigin();
+
 
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -56,7 +55,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
 
   const form = useForm<BillboardFormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: initialData ?? {
+    defaultValues: initialData || {
       label: "",
       imageUrl: "",
     },
