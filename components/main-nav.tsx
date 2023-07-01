@@ -14,14 +14,19 @@ export function MainNav({
 
   const routes = [
     {
+      href: `/${params.storeId}`,
+      label: "Visión General",
+      active: pathname === `/${params.storeId}`,
+    },
+    {
       href: `/${params.storeId}/settings`,
       label: "Ajustes",
       active: pathname === `/${params.storeId}/settings`,
     },
     {
-      href: `/${params.storeId}`,
-      label: "Visión General",
-      active: pathname === `/${params.storeId}`,
+      href: `/${params.storeId}/billboards`,
+      label: "Carteras",
+      active: pathname === `/${params.storeId}/billboards`,
     },
   ];
 
