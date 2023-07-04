@@ -19,11 +19,6 @@ export function MainNav({
       active: pathname === `/${params.storeId}`,
     },
     {
-      href: `/${params.storeId}/settings`,
-      label: "Ajustes",
-      active: pathname === `/${params.storeId}/settings`,
-    },
-    {
       href: `/${params.storeId}/billboards`,
       label: "Billeteras",
       active: pathname === `/${params.storeId}/billboards`,
@@ -32,6 +27,16 @@ export function MainNav({
       href: `/${params.storeId}/categories`,
       label: "Categorias",
       active: pathname === `/${params.storeId}/categories`,
+    },
+    {
+      href: `/${params.storeId}/sizes`,
+      label: "Tallas",
+      active: pathname === `/${params.storeId}/sizes`,
+    },
+    {
+      href: `/${params.storeId}/settings`,
+      label: "Ajustes",
+      active: pathname === `/${params.storeId}/settings`,
     },
   ];
 
