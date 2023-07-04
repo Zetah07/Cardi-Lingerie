@@ -38,7 +38,7 @@ export async function PATCH(
         const { label, imageUrl } = body;
 
         if (!userId) {
-            return new NextResponse("Unauthorized", { status: 401 });
+            return new NextResponse("Unauthenticated", { status: 401 });
         }
 
         if (!label) {
@@ -90,7 +90,7 @@ export async function DELETE(
         const { userId } = auth();
 
         if (!userId) {
-            return new NextResponse("Unauthorized", { status: 401 });
+            return new NextResponse("Unauthenticated", { status: 401 });
         }
 
         if (!params.billboardId) {

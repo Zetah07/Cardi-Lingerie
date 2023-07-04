@@ -28,6 +28,11 @@ export function MainNav({
       label: "Billeteras",
       active: pathname === `/${params.storeId}/billboards`,
     },
+    {
+      href: `/${params.storeId}/categories`,
+      label: "Categorias",
+      active: pathname === `/${params.storeId}/categories`,
+    },
   ];
 
   return (
