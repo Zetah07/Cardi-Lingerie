@@ -34,10 +34,10 @@ export const CellAction: React.FC<CellActionProps> = ({
     try {
       setLoading(true);
       await axios.delete(`/api/${params.storeId}/sizes/${data.id}`);
-      toast.success('Talla eliminada.');
+      toast.success('Talla Eliminada.');
       router.refresh();
     } catch (error) {
-      toast.error('Asegúrese de haber eliminado antes todos los productos que utilizan este tamaño.');
+      toast.error('Asegúrese de haber eliminado antes todos los productos que utilizan esta billetera.');
     } finally {
       setOpen(false);
       setLoading(false);
@@ -46,7 +46,7 @@ export const CellAction: React.FC<CellActionProps> = ({
 
   const onCopy = (id: string) => {
     navigator.clipboard.writeText(id);
-    toast.success('ID de la Talla copiado en el portapapeles.');
+    toast.success('Talla ID Copiado en el portapapeles.');
   }
 
   return (
@@ -65,7 +65,7 @@ export const CellAction: React.FC<CellActionProps> = ({
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+          <DropdownMenuLabel>Acciones</DropdownMenuLabel>
           <DropdownMenuItem
             onClick={() => onCopy(data.id)}
           >
